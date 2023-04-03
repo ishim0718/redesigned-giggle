@@ -1,0 +1,27 @@
+{
+  "name": "redesigned-giggle",
+  "version": "1.0.0",
+  "description": "GTBCM10C",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishim0718/redesigned-giggle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishim0718/redesigned-giggle/issues"
+  },
+  "homepage": "https://github.com/ishim0718/redesigned-giggle#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
