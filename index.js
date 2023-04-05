@@ -1,13 +1,12 @@
-// const fs = require('fs');
+const fs = require('fs');
 var inquirer = require('inquirer');
-// const path = require('path');
-// const shapes = require('./lib/shapes.js');
+const { Square, Circle, Triangle } = require('./lib/shapes.js');
 
 const svgFileCreator({text, textColor}, shapeContent) {
     return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
     ${shapeContent}
-    <text x="150" y="125" font-size="50" "text-anchor="middle" fill="${textColor}">${text}</text>
-    <svg/>`
+    <text x="150" y="100" font-size="70" text-anchor="middle" fill="${textColor}">${text}</text>
+    </svg>`
 }
 
 const questions = [
@@ -46,7 +45,7 @@ function init() {
     .then(answers => {
         console.log(answers)
         var shapeContent = "";
-        
+
     })
 };
 
