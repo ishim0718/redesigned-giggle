@@ -1,8 +1,8 @@
 const fs = require('fs');
 var inquirer = require('inquirer');
-const { Square, Circle, Triangle } = require('./lib/shapes.js');
+const {Square, Circle, Triangle} = require('./lib/shapes.js');
 
-const svgFileCreator({text, textColor}, shapeContent) {
+function svgFileCreator({text, textColor}, shapeContent) {
     return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
     ${shapeContent}
     <text x="150" y="100" font-size="70" text-anchor="middle" fill="${textColor}">${text}</text>
@@ -44,8 +44,20 @@ function init() {
     .prompt(questions)
     .then(answers => {
         console.log(answers)
-        var shapeContent = "";
-
+        var shapeContent = '';
+        var shape = '';
+        if(answers.shape == "Circle") {
+            shape = new Circle();
+        } else if(answers.shape == "Square") {
+            shape = new Square();
+        } else if(answers.shape == "Triangle") {
+            shape = new Triangle();
+        }
+        shape.setColor(answers.shapeColor);
+        shapeContent = shape.render();
+        const content = svgFileCreator(answers, shapeContent);
+        fs.writeFile("logo.svg", content, (err) =>
+            err ? console.log(err) : console.log("Generated logo.svg"))
     })
 };
 
